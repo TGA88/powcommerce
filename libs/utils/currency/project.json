@@ -1,0 +1,35 @@
+{
+  "name": "utils-currency",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/utils/currency/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/utils/currency/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/utils/currency/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/utils/currency",
+        "tsConfig": "libs/utils/currency/tsconfig.lib.json",
+        "packageJson": "libs/utils/currency/package.json",
+        "main": "libs/utils/currency/src/index.ts",
+        "assets": ["libs/utils/currency/*.md"]
+      }
+    }
+  },
+  "tags": []
+}

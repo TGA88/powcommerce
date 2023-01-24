@@ -14,7 +14,38 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@powcommerce/auth-mcs-mvc": ["libs/auth-mcs-mvc/src/index.ts"],
+      "@powcommerce/auth-mcs/org-api": ["libs/auth-mcs/org-api/src/index.ts"],
+      "@powcommerce/auth-mcs/org-core": ["libs/auth-mcs/org-core/src/index.ts"],
+      "@powcommerce/auth-mcs/role-api": ["libs/auth-mcs/role-api/src/index.ts"],
+      "@powcommerce/auth-mcs/store-prisma": [
+        "libs/auth-mcs/store-prisma/src/index.ts"
+      ],
+      "@powcommerce/auth-mcs/user-api": ["libs/auth-mcs/user-api/src/index.ts"],
+      "@powcommerce/auth-mcs/user-core": [
+        "libs/auth-mcs/user-core/src/index.ts"
+      ],
+      "@powcommerce/distributor-mcs/profile-api": [
+        "libs/distributor-mcs/profile-api/src/index.ts"
+      ],
+      "@powcommerce/distributor-mcs/profile-client-rest": [
+        "libs/distributor-mcs/profile-client-rest/src/index.ts"
+      ],
+      "@powcommerce/distributor-mcs/profile-core": [
+        "libs/distributor-mcs/profile-core/src/index.ts"
+      ],
+      "@powcommerce/distributor-mcs/store-prisma": [
+        "libs/distributor-mcs/store-prisma/src/index.ts"
+      ],
+      "@powcommerce/utils/jwt-authorizer": [
+        "libs/utils/jwt-authorizer/src/index.ts"
+      ],
+      "ui-pcm-button": ["libs/ui/pcm-button/src/index.ts"],
+      "ui-pcm-checkbox": ["libs/ui/pcm-checkbox/src/index.ts"],
+      "utils-currency": ["libs/utils/currency/src/index.ts"],
+      "utils-formatting": ["libs/utils/formatting/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

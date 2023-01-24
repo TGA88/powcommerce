@@ -1,0 +1,46 @@
+{
+  "name": "distributor-mcs-fastify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/distributor-mcs-fastify/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/distributor-mcs-fastify",
+        "format": ["cjs"],
+        "main": "apps/distributor-mcs-fastify/src/main.ts",
+        "tsConfig": "apps/distributor-mcs-fastify/tsconfig.app.json",
+        "assets": ["apps/distributor-mcs-fastify/src/assets"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "distributor-mcs-fastify:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "distributor-mcs-fastify:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/distributor-mcs-fastify/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/distributor-mcs-fastify/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

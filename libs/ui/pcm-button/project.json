@@ -1,0 +1,43 @@
+{
+  "name": "ui-pcm-button",
+  "sourceRoot": "libs/ui/pcm-button/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ui/pcm-button/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ui/pcm-button",
+        "tsConfig": "libs/ui/pcm-button/tsconfig.lib.json",
+        "project": "libs/ui/pcm-button/package.json",
+        "entryFile": "libs/ui/pcm-button/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/ui/pcm-button/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ui/pcm-button/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

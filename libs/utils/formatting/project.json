@@ -1,0 +1,35 @@
+{
+  "name": "utils-formatting",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/utils/formatting/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/utils/formatting/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/utils/formatting/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/utils/formatting",
+        "tsConfig": "libs/utils/formatting/tsconfig.lib.json",
+        "packageJson": "libs/utils/formatting/package.json",
+        "main": "libs/utils/formatting/src/index.ts",
+        "assets": ["libs/utils/formatting/*.md"]
+      }
+    }
+  },
+  "tags": []
+}

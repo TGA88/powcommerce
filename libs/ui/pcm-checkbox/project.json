@@ -1,0 +1,43 @@
+{
+  "name": "ui-pcm-checkbox",
+  "sourceRoot": "libs/ui/pcm-checkbox/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ui/pcm-checkbox/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ui/pcm-checkbox",
+        "tsConfig": "libs/ui/pcm-checkbox/tsconfig.lib.json",
+        "project": "libs/ui/pcm-checkbox/package.json",
+        "entryFile": "libs/ui/pcm-checkbox/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/ui/pcm-checkbox/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ui/pcm-checkbox/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

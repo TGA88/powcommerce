@@ -1,0 +1,46 @@
+{
+  "name": "auth-mcs-fastify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/auth-mcs-fastify/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/auth-mcs-fastify",
+        "format": ["cjs"],
+        "main": "apps/auth-mcs-fastify/src/main.ts",
+        "tsConfig": "apps/auth-mcs-fastify/tsconfig.app.json",
+        "assets": ["apps/auth-mcs-fastify/src/assets"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "auth-mcs-fastify:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "auth-mcs-fastify:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/auth-mcs-fastify/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/auth-mcs-fastify/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
