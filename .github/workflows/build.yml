@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: build
-      run: echo build ${{ github.GITHUB_REF }}
+      run: echo build ${{ github.sha }}
 
     # strategy:
     #   matrix:
