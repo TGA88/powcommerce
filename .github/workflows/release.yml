@@ -10,7 +10,7 @@ on:
       - '**'           # Push events to every tag including hierarchical tags like v1.0/beta
 
 jobs:
-  build:
+  build-and-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: pull code from tag
