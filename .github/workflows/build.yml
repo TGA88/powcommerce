@@ -60,7 +60,7 @@ jobs:
 
       - name: Bump version
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        run: npx nx affected --target=version --trackDeps
+        run: npx nx affected --target=version --trackDeps  --parallel=1
 
       - name: Push commit and Tag
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
