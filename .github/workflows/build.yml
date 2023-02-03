@@ -74,7 +74,7 @@ jobs:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: git log --oneline
 
-      - name: Push Tag
+      - name: Push Tag1
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           git config user.name "GitHub Actions"
