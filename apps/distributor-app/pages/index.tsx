@@ -1,3 +1,5 @@
+import { DistributorApp } from '@powcommerce/distributor-app-lib';
+
 import styles from './index.module.scss';
 
 export function Index() {
@@ -17,6 +19,7 @@ export function Index() {
             </h1>
           </div>
 
+          <DistributorApp></DistributorApp>
           <div id="hero" className="rounded">
             <div className="text-container">
               <h2>

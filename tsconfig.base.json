@@ -26,7 +26,9 @@
       "@powcommerce/auth-mcs/user-core": [
         "libs/auth-mcs/user-core/src/index.ts"
       ],
-      "@powcommerce/distributor-app": ["libs/distributor-app/src/index.ts"],
+      "@powcommerce/distributor-app-lib": [
+        "libs/distributor-app-lib/src/index.ts"
+      ],
       "@powcommerce/distributor-mcs/profile-api": [
         "libs/distributor-mcs/profile-api/src/index.ts"
       ],

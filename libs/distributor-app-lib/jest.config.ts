@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'distributor-app',
+  displayName: 'distributor-app-lib',
   preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': [
@@ -9,5 +9,5 @@ export default {
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/distributor-app',
+  coverageDirectory: '../../coverage/libs/distributor-app-lib',
 };
