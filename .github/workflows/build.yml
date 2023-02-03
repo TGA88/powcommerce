@@ -58,13 +58,21 @@ jobs:
       - name: build affected
         run: npx nx affected --target=build --parallel=3
 
+      - name: Setup Git for Bump Version
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email noreply@github.com
+
       - name: Bump version
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: npx nx affected --target=version --trackDeps  --parallel=1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push commit and Tag
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        run: echo 'push tag' 
+        run: git log --oneline
       # - name: Push Tag
       #   run: |
       #     git config user.name "GitHub Actions"
