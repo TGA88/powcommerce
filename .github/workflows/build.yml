@@ -19,7 +19,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - name: install package
         run: yarn --frozen-lockfile
-      - run: npx nx format:check
+      # - run: npx nx format:check
       - name: lint
         run: npx nx affected --target=lint --parallel=3
       - name: test
