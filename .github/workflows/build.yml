@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  main:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -70,18 +70,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push commit and Tag
+      - name: git committed
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: git log --oneline
-      # - name: Push Tag
-      #   run: |
-      #     git config user.name "GitHub Actions"
-      #     git config user.email noreply@github.com
-      #     git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}          
-      #     git push origin
-      #     git push --tags
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Tag
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email noreply@github.com
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}          
+          git push origin
+          git push --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 # jobs:
 #   build:
 
