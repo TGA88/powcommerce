@@ -1,3 +1,3 @@
 export function distributorMcsProfileApi(): string {
-  return 'distributor-mcs-profile-api1';
+  return 'distributor-mcs-profile-api2';
 }
