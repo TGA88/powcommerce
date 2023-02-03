@@ -10,12 +10,44 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  main:
     runs-on: ubuntu-latest
     steps:
-    - name: build
-      run: echo build ${{ github.sha }}
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - name: install package
+        run: yarn --frozen-lockfile
+      - run: npx nx format:check
+      - name: lint
+        run: npx nx affected --target=lint --parallel=3
+      - name: test
+        run: npx nx affected --target=test --parallel=3 --configuration=ci
+      - name: build affected
+        run: npx nx affected --target=build --parallel=3
+      - name: Bump version
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: echo 'yarn version' 
+      - name: Push commit and Tag
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: echo 'yarn version' 
+      # - name: Push Tag
+      #   run: |
+      #     git config user.name "GitHub Actions"
+      #     git config user.email noreply@github.com
+      #     git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}          
+      #     git push origin
+      #     git push --tags
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: build
+#       run: echo build ${{ github.sha }}
 
     # strategy:
     #   matrix:
