@@ -31,7 +31,7 @@ jobs:
         run: echo 'yarn version' 
       - name: Push commit and Tag
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        run: echo 'yarn version' 
+        run: echo 'push tag' 
       # - name: Push Tag
       #   run: |
       #     git config user.name "GitHub Actions"
