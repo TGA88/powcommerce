@@ -6,7 +6,7 @@ export interface DistributorAppProps {}
 export function DistributorApp(props: DistributorAppProps) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to DistributorApp!</h1>
+      <h1>Welcome to DistributorAppLib!</h1>
     </div>
   );
 }
